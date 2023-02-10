@@ -1,12 +1,12 @@
 import pytest
 
-from python_socket.AddPlayerToTeam import AddPlayerToTeam
-from python_socket.ITeamData import ITeamData
-from python_socket.ITeamPlayerData import ITeamPlayerData
-from python_socket.IPlayerData import IPlayerData
-from python_socket.Team import Team
-from python_socket.Player import Player
-from python_socket.PlayerTeam import PlayerTeam
+from src.AddPlayerToTeam import AddPlayerToTeam
+from src.ITeamData import ITeamData
+from src.ITeamPlayerData import ITeamPlayerData
+from src.IPlayerData import IPlayerData
+from src.Team import Team
+from src.Player import Player
+from src.PlayerTeam import PlayerTeam
 
 
 class playerFakeData(IPlayerData):

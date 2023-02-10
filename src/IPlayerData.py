@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from python_socket import Player
+from src import Player
 
 
 class IPlayerData(ABC):

@@ -1,7 +1,7 @@
-from python_socket import Player
-from python_socket.ITeamData import ITeamData
-from python_socket.ITeamPlayerData import ITeamPlayerData
-from python_socket.IPlayerData import IPlayerData
+from src import Player
+from src.ITeamData import ITeamData
+from src.ITeamPlayerData import ITeamPlayerData
+from src.IPlayerData import IPlayerData
 
 
 class AddPlayerToTeam:

@@ -1,4 +1,4 @@
-from python_socket.Team import Team
+from src.Team import Team
 
 def test_create_team():
     team = Team(1, 'Apex')

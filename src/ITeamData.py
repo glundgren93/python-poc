@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from python_socket import Team
+from src import Team
 
 
 class ITeamData(ABC):
