@@ -1,13 +1,13 @@
-from src.ITeamData import ITeamData
-from src.ITeamPlayerData import ITeamPlayerData
-from src.IPlayerData import IPlayerData
+from src.ITeamRepository import ITeamRepository
+from src.ITeamPlayerRepository import ITeamPlayerRepository
+from src.IPlayerRepository import IPlayerRepository
 
 
 class AddPlayerToTeam:
     def __init__(self, player_data, team_data, team_player_data):
-        self.player_data: IPlayerData = player_data
-        self.team_data: ITeamData = team_data
-        self.team_player_data: ITeamPlayerData = team_player_data
+        self.player_data: IPlayerRepository = player_data
+        self.team_data: ITeamRepository = team_data
+        self.team_player_data: ITeamPlayerRepository = team_player_data
 
     def execute(self, team_id, player_id):
         if self.player_data.getPlayer(player_id) == None:

@@ -1,18 +1,18 @@
 import pytest
 
 from src.AddPlayerToTeam import AddPlayerToTeam
-from src.FakePlayerData import FakePlayerData
-from src.FakeTeamData import FakeTeamData
-from src.FakeTeamPlayerData import FakeTeamPlayerData
+from src.FakePlayerRepository import FakePlayerRepository
+from src.FakeTeamRepository import FakeTeamRepository
+from src.FakeTeamPlayerRepository import FakeTeamPlayerRepository
 
 
 def test_add_player_to_team():
     team_id = 1
     player_id = 1
 
-    player_fake_data = FakePlayerData()
-    team_fake_data = FakeTeamData()
-    team_player_fake_data = FakeTeamPlayerData()
+    player_fake_data = FakePlayerRepository()
+    team_fake_data = FakeTeamRepository()
+    team_player_fake_data = FakeTeamPlayerRepository()
 
     add_player_to_team = AddPlayerToTeam(
         player_fake_data, team_fake_data, team_player_fake_data
@@ -31,9 +31,9 @@ def test_add_multiple_players_to_team():
     player_id = 1
     player_to_be_added_id = 2
 
-    player_fake_data = FakePlayerData()
-    team_fake_data = FakeTeamData()
-    team_player_fake_data = FakeTeamPlayerData()
+    player_fake_data = FakePlayerRepository()
+    team_fake_data = FakeTeamRepository()
+    team_player_fake_data = FakeTeamPlayerRepository()
 
     add_player_to_team = AddPlayerToTeam(
         player_fake_data, team_fake_data, team_player_fake_data
@@ -58,9 +58,9 @@ def test_add_player_to_multiple_teams():
     third_team_id = 3
     player_id = 1
 
-    player_fake_data = FakePlayerData()
-    team_fake_data = FakeTeamData()
-    team_player_fake_data = FakeTeamPlayerData()
+    player_fake_data = FakePlayerRepository()
+    team_fake_data = FakeTeamRepository()
+    team_player_fake_data = FakeTeamPlayerRepository()
 
     add_player_to_team = AddPlayerToTeam(
         player_fake_data, team_fake_data, team_player_fake_data
@@ -85,9 +85,9 @@ def test_cannot_add_player_to_non_existing_team():
         team_id = 4
         player_id = 1
 
-        player_fake_data = FakePlayerData()
-        team_fake_data = FakeTeamData()
-        team_player_fake_data = FakeTeamPlayerData()
+        player_fake_data = FakePlayerRepository()
+        team_fake_data = FakeTeamRepository()
+        team_player_fake_data = FakeTeamPlayerRepository()
 
         add_player_to_team = AddPlayerToTeam(
             player_fake_data, team_fake_data, team_player_fake_data
@@ -100,11 +100,33 @@ def test_cannot_add_non_existing_player_to_team():
         team_id = 1
         player_id = 45
 
-        player_fake_data = FakePlayerData()
-        team_fake_data = FakeTeamData()
-        team_player_fake_data = FakeTeamPlayerData()
+        player_fake_data = FakePlayerRepository()
+        team_fake_data = FakeTeamRepository()
+        team_player_fake_data = FakeTeamPlayerRepository()
 
         add_player_to_team = AddPlayerToTeam(
             player_fake_data, team_fake_data, team_player_fake_data
         )
         add_player_to_team.execute(team_id, player_id)
+
+def test_add_player_to_subteam():
+    team_id = 1
+    subteam_id = 2
+    player_id = 1
+
+    player_fake_data = FakePlayerRepository()
+    team_fake_data = FakeTeamRepository()
+    team_player_fake_data = FakeTeamPlayerRepository()
+
+    add_player_to_team = AddPlayerToTeam(
+        player_fake_data, team_fake_data, team_player_fake_data
+    )
+    add_player_to_team.execute(team_id, player_id)
+    add_player_to_team.execute(subteam_id, player_id)
+
+    player_teams_amount = team_player_fake_data.get_teams_from_player(player_id)
+    teams = team_fake_data.getSubTeams(team_id)
+
+
+    assert len(player_teams_amount) == 2
+    assert len(teams) == 1

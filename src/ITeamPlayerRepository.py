@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-class ITeamPlayerData(ABC):
+class ITeamPlayerRepository(ABC):
     @abstractmethod
     def get_teams_from_player(player_id):
         pass

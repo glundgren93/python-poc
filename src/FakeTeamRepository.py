@@ -1,8 +1,8 @@
-from src.ITeamData import ITeamData
+from src.ITeamRepository import ITeamRepository
 from src.Team import Team
 
 
-class FakeTeamData(ITeamData):
+class FakeTeamRepository(ITeamRepository):
     def __init__(self):
         self.teams = [
             Team(1, "Apex"),
@@ -15,3 +15,6 @@ class FakeTeamData(ITeamData):
 
     def getTeam(self, team_id) -> Team:
         return next((x for x in self.teams if x.id == team_id), None)
+
+    def getSubTeams(self, team_id):
+        return [team for team in self.teams if team.parent_id == team_id]

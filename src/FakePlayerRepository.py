@@ -1,8 +1,8 @@
-from src.IPlayerData import IPlayerData
+from src.IPlayerRepository import IPlayerRepository
 from src.Player import Player
 
 
-class FakePlayerData(IPlayerData):
+class FakePlayerRepository(IPlayerRepository):
     def __init__(self):
         self.players = [
             Player(1, "coach1", "coach"),

@@ -1,8 +1,8 @@
-from src.ITeamPlayerData import ITeamPlayerData
+from src.ITeamPlayerRepository import ITeamPlayerRepository
 from src.PlayerTeam import PlayerTeam
 
 
-class FakeTeamPlayerData(ITeamPlayerData):
+class FakeTeamPlayerRepository(ITeamPlayerRepository):
     def __init__(self):
         self.playerTeams = []
 
