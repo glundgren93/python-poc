@@ -15,3 +15,9 @@ class FakeTeamPlayerData(ITeamPlayerData):
 
     def get_teams_from_player(self, player_id):
         return [item for item in self.playerTeams if item.player_id == player_id]
+
+    def delete_team_player(self, team_id, player_id):
+        for i, player_team in enumerate(self.playerTeams):
+            if player_team.team_id == team_id and player_team.player_id == player_id:
+                del self.playerTeams[i]
+                break

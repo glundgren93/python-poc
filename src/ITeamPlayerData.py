@@ -13,3 +13,6 @@ class ITeamPlayerData(ABC):
     def create_team_player(team_id, player_id):
         pass
 
+    @abstractmethod
+    def delete_team_player(team_id, player_id):
+        pass
