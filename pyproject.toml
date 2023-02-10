@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "python-poc"
+version = "0.1.0"
+description = ""
+authors = ["Gabriel Lundgren <gabriel.lundgren@outsystems.com>"]
+readme = "README.md"
+packages = [{include = "python_socket"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+black = "^23.1.0"
+fastapi = "^0.90.0"
+uvicorn = "^0.20.0"
+pydantic = "^1.10.4"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.1"
+pytest-watch = "^4.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
