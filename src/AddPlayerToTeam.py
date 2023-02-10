@@ -1,4 +1,3 @@
-from src import Player
 from src.ITeamData import ITeamData
 from src.ITeamPlayerData import ITeamPlayerData
 from src.IPlayerData import IPlayerData
