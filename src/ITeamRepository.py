@@ -15,3 +15,7 @@ class ITeamRepository(ABC):
     @abstractmethod
     def getSubTeams(team_id):
         pass
+
+    @abstractmethod
+    def createTeam(team_name, parent_id):
+        pass

@@ -18,3 +18,7 @@ class FakeTeamRepository(ITeamRepository):
 
     def getSubTeams(self, team_id):
         return [team for team in self.teams if team.parent_id == team_id]
+
+    def createTeam(self, team_name, parent_id):
+        new_id = len(self.teams) + 1
+        self.teams.append(Team(new_id, team_name, parent_id))
