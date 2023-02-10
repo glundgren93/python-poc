@@ -16,3 +16,9 @@ class FakePlayerRepository(IPlayerRepository):
 
     def getPlayer(self, id):
         return next((x for x in self.players if x.id == id), None)
+
+    def createPlayer(self, email, role):
+        new_id = len(self.players) + 1
+        self.teams.append(Player(new_id, email, role))
+
+        return new_id

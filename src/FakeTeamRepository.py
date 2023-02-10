@@ -22,3 +22,4 @@ class FakeTeamRepository(ITeamRepository):
     def createTeam(self, team_name, parent_id):
         new_id = len(self.teams) + 1
         self.teams.append(Team(new_id, team_name, parent_id))
+        return new_id

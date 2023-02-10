@@ -9,13 +9,13 @@ class ITeamRepository(ABC):
         pass
 
     @abstractmethod
-    def getTeam(team_id) -> Team:
+    def getTeam(self, team_id) -> Team:
         pass
 
     @abstractmethod
-    def getSubTeams(team_id):
+    def getSubTeams(self, team_id):
         pass
 
     @abstractmethod
-    def createTeam(team_name, parent_id):
+    def createTeam(self, team_name, parent_id):
         pass
