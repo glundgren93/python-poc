@@ -1,14 +1,13 @@
-import sys
+import uvicorn
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 from CreateTeam import CreateTeam
 from FakeTeamRepository import FakeTeamRepository
 from GetPlayers import GetPlayers
 from GetTeams import GetTeams
 
 from controller.http.teams import TeamController
-sys.path.insert(0, '../src')
-import uvicorn
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 from FakePlayerRepository import FakePlayerRepository
 
 from FastApiServer import FastApiServer
@@ -35,9 +34,12 @@ create_team = CreateTeam(team_data=team_fake_data)
 get_teams = GetTeams(team_data=team_fake_data)
 
 playerController = PlayerController(httpServer=server, getPlayers=get_players)
-teamController = TeamController(createTeam=create_team, getTeams=get_teams, httpServer=server)
+teamController = TeamController(
+    createTeam=create_team, getTeams=get_teams, httpServer=server
+)
 
 app.include_router(server.router)
+
 
 def main(port: int):
     uvicorn.config.LOGGING_CONFIG["formatters"]["default"][
@@ -51,6 +53,7 @@ def main(port: int):
 
     uvicorn.run("main:app", host="localhost", port=port, log_level="info", reload=True)
 
+
 if __name__ == "__main__":
     port = 5001
-    main(port)    
+    main(port)
