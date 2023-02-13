@@ -1,5 +1,7 @@
-from src.CreateTeam import CreateTeam
-from src.FakeTeamRepository import FakeTeamRepository
+
+from application.CreateTeam import CreateTeam
+from infra.repository.FakeTeamRepository import FakeTeamRepository
+
 
 def test_create_team():
     team_fake_data = FakeTeamRepository()

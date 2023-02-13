@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
-from Player import Player
+from domain.entities.Player import Player
+
 
 
 class IPlayerRepository(ABC):

@@ -1,4 +1,6 @@
-from src.Team import Team
+
+from domain.entities.Team import Team
+
 
 def test_create_team():
     team = Team(1, 'Apex')

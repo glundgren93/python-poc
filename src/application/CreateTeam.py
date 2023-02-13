@@ -1,4 +1,6 @@
-from ITeamRepository import ITeamRepository
+
+
+from domain.repository.ITeamRepository import ITeamRepository
 
 
 class CreateTeam():

@@ -1,5 +1,5 @@
-from GetPlayers import GetPlayers
-from IHttpServer import IHttpServer
+from application.GetPlayers import GetPlayers
+from infra.http.IHttpServer import IHttpServer
 
 class PlayerController:
     def __init__(self, httpServer: IHttpServer, getPlayers: GetPlayers):

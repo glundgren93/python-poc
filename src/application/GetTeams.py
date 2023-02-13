@@ -1,5 +1,4 @@
-from IPlayerRepository import IPlayerRepository
-from ITeamRepository import ITeamRepository
+from domain.repository.ITeamRepository import ITeamRepository
 
 
 class GetTeams():

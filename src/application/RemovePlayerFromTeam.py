@@ -1,6 +1,8 @@
-from IPlayerRepository import IPlayerRepository
-from ITeamPlayerRepository import ITeamPlayerRepository
-from ITeamRepository import ITeamRepository
+
+
+from domain.repository.IPlayerRepository import IPlayerRepository
+from domain.repository.ITeamPlayerRepository import ITeamPlayerRepository
+from domain.repository.ITeamRepository import ITeamRepository
 
 
 class RemovePlayerFromTeam():

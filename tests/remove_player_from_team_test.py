@@ -1,10 +1,11 @@
 import pytest
+from application.AddPlayerToTeam import AddPlayerToTeam
+from application.RemovePlayerFromTeam import RemovePlayerFromTeam
 
-from src.AddPlayerToTeam import AddPlayerToTeam
-from src.FakePlayerRepository import FakePlayerRepository
-from src.FakeTeamRepository import FakeTeamRepository
-from src.FakeTeamPlayerRepository import FakeTeamPlayerRepository
-from src.RemovePlayerFromTeam import RemovePlayerFromTeam
+from infra.repository.FakePlayerRepository import FakePlayerRepository
+from infra.repository.FakeTeamPlayerRepository import FakeTeamPlayerRepository
+from infra.repository.FakeTeamRepository import FakeTeamRepository
+
 
 def test_remove_player_from_team():
     team_id = 1

@@ -1,8 +1,10 @@
-from CreateTeam import CreateTeam
-from GetTeams import GetTeams
-from IHttpServer import IHttpServer
+from application.CreateTeam import CreateTeam
+from application.GetTeams import GetTeams
 
 from pydantic import BaseModel
+
+from infra.http.IHttpServer import IHttpServer
+
 
 class Team(BaseModel):
     teamName: str

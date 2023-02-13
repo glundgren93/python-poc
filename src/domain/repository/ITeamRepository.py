@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from Team import Team
+from domain.entities.Team import Team
 
 
 class ITeamRepository(ABC):

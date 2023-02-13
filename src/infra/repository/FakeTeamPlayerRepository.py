@@ -1,5 +1,5 @@
-from ITeamPlayerRepository import ITeamPlayerRepository
-from PlayerTeam import PlayerTeam
+from domain.entities.PlayerTeam import PlayerTeam
+from domain.repository.ITeamPlayerRepository import ITeamPlayerRepository
 
 
 class FakeTeamPlayerRepository(ITeamPlayerRepository):
