@@ -5,8 +5,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from application.CreateTeam import CreateTeam
 from application.GetPlayers import GetPlayers
 from application.GetTeams import GetTeams
-from infra.controller.http.players import PlayerController
-from infra.controller.http.teams import TeamController
+from infra.controller.players import PlayerController
+from infra.controller.teams import TeamController
 from infra.http.FastApiServer import FastApiServer
 from infra.repository.FakePlayerRepository import FakePlayerRepository
 from infra.repository.FakeTeamRepository import FakeTeamRepository
