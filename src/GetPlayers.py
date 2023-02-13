@@ -1,4 +1,4 @@
-from src.IPlayerRepository import IPlayerRepository
+from IPlayerRepository import IPlayerRepository
 
 
 class GetPlayers():

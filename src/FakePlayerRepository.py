@@ -1,5 +1,5 @@
-from src.IPlayerRepository import IPlayerRepository
-from src.Player import Player
+from IPlayerRepository import IPlayerRepository
+from Player import Player
 
 
 class FakePlayerRepository(IPlayerRepository):

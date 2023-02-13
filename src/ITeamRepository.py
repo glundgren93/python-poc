@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src import Team
+from Team import Team
 
 
 class ITeamRepository(ABC):

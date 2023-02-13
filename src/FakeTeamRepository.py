@@ -1,5 +1,5 @@
-from src.ITeamRepository import ITeamRepository
-from src.Team import Team
+from ITeamRepository import ITeamRepository
+from Team import Team
 
 
 class FakeTeamRepository(ITeamRepository):

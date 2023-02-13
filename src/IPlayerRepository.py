@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src import Player
+from Player import Player
 
 
 class IPlayerRepository(ABC):
