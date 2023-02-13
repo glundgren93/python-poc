@@ -1,4 +1,4 @@
-from src.ITeamRepository import ITeamRepository
+from ITeamRepository import ITeamRepository
 
 
 class CreateTeam():
