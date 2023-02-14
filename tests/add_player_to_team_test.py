@@ -125,7 +125,7 @@ def test_add_player_to_subteam():
     add_player_to_team.execute(subteam_id, player_id)
 
     player_teams_amount = team_player_fake_data.get_teams_from_player(player_id)
-    teams = team_fake_data.getSubTeams(team_id)
+    teams = team_fake_data.get_sub_teams(team_id)
 
 
     assert len(player_teams_amount) == 2

@@ -9,4 +9,4 @@ def test_create_team():
     create_team = CreateTeam(team_fake_data)
     new_id = create_team.execute("Tigers")
 
-    assert team_fake_data.getTeam(new_id).name == "Tigers"
+    assert team_fake_data.get_team(new_id).name == "Tigers"

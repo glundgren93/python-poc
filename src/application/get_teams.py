@@ -6,6 +6,6 @@ class GetTeams():
         self.team_data: ITeamRepository = team_data
 
     def execute(self):
-        teams = self.team_data.getTeams()
+        teams = self.team_data.get_teams()
 
         return teams

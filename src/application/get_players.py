@@ -6,6 +6,6 @@ class GetPlayers():
         self.player_data: IPlayerRepository = player_data
 
     def execute(self):
-        players = self.player_data.getPlayers()
+        players = self.player_data.get_players()
 
         return players

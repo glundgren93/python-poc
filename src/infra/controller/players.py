@@ -4,7 +4,7 @@ from infra.http.ihttp_server import IHttpServer
 class PlayerController:
     def __init__(self, httpServer: IHttpServer, getPlayers: GetPlayers):
         self.httpServer = httpServer
-        self.getPlayers: GetPlayers = getPlayers
+        self._get_players: GetPlayers = getPlayers
 
         self.httpServer.on(url="/players", method="GET", callback=self.get_players)
 
@@ -12,4 +12,4 @@ class PlayerController:
         self,
     ):
         
-        return self.getPlayers.execute()
+        return self._get_players.execute()

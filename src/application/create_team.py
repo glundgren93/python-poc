@@ -6,6 +6,6 @@ class CreateTeam():
         self.team_data: ITeamRepository = team_data
 
     def execute(self, team_name, parent_id = None):
-        new_id = self.team_data.createTeam(team_name, parent_id)
+        new_id = self.team_data.create_team(team_name, parent_id)
 
         return new_id

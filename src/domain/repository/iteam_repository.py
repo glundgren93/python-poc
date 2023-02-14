@@ -3,17 +3,17 @@ from domain.entities.team import Team
 
 class ITeamRepository(ABC):
     @abstractmethod
-    def getTeams():
+    def get_teams():
         pass
 
     @abstractmethod
-    def getTeam(self, team_id) -> Team:
+    def get_team(self, team_id) -> Team:
         pass
 
     @abstractmethod
-    def getSubTeams(self, team_id):
+    def get_sub_teams(self, team_id):
         pass
 
     @abstractmethod
-    def createTeam(self, team_name, parent_id):
+    def create_team(self, team_name, parent_id):
         pass

@@ -3,13 +3,13 @@ from domain.entities.player import Player
 
 class IPlayerRepository(ABC):
     @abstractmethod
-    def getPlayers():
+    def get_players():
         pass
 
     @abstractmethod
-    def getPlayer(email) -> Player:
+    def get_player(email) -> Player:
         pass
 
     @abstractmethod
-    def createPlayer(email, role):
+    def create_player(email, role):
         pass

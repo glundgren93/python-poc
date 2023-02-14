@@ -10,10 +10,10 @@ class RemovePlayerFromTeam():
         self.team_player_data: ITeamPlayerRepository = team_player_data
 
     def execute(self, team_id, player_id):
-        if self.team_data.getTeam(team_id) == None:
+        if self.team_data.get_team(team_id) == None:
             raise Exception("Team does not exist")
 
-        if self.player_data.getPlayer(player_id) == None:
+        if self.player_data.get_player(player_id) == None:
             raise Exception("Player does not exist")
 
         self.team_player_data.delete_team_player(team_id, player_id)
