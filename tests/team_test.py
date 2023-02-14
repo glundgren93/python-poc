@@ -1,5 +1,5 @@
 
-from domain.entities.Team import Team
+from domain.entities.team import Team
 
 
 def test_create_team():

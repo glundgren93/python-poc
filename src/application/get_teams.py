@@ -1,4 +1,4 @@
-from domain.repository.ITeamRepository import ITeamRepository
+from domain.repository.iteam_repository import ITeamRepository
 
 
 class GetTeams():

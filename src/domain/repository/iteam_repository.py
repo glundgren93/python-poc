@@ -1,7 +1,5 @@
 from abc import ABC, abstractmethod
-
-from domain.entities.Team import Team
-
+from domain.entities.team import Team
 
 class ITeamRepository(ABC):
     @abstractmethod

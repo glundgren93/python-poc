@@ -1,6 +1,5 @@
-from domain.entities.Player import Player
-from domain.repository.IPlayerRepository import IPlayerRepository
-
+from domain.entities.player import Player
+from domain.repository.iplayer_repository import IPlayerRepository
 
 class FakePlayerRepository(IPlayerRepository):
     def __init__(self):

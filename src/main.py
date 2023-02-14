@@ -2,14 +2,14 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from application.CreateTeam import CreateTeam
-from application.GetPlayers import GetPlayers
-from application.GetTeams import GetTeams
+from application.create_team import CreateTeam
+from application.get_players import GetPlayers
+from application.get_teams import GetTeams
 from infra.controller.players import PlayerController
 from infra.controller.teams import TeamController
-from infra.http.FastApiServer import FastApiServer
-from infra.repository.FakePlayerRepository import FakePlayerRepository
-from infra.repository.FakeTeamRepository import FakeTeamRepository
+from infra.http.fast_api_server import FastApiServer
+from infra.repository.in_memory_player_repository import FakePlayerRepository
+from infra.repository.in_memory_team_repository import FakeTeamRepository
 
 
 

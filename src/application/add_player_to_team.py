@@ -1,8 +1,6 @@
-
-
-from domain.repository.IPlayerRepository import IPlayerRepository
-from domain.repository.ITeamPlayerRepository import ITeamPlayerRepository
-from domain.repository.ITeamRepository import ITeamRepository
+from domain.repository.iplayer_repository import IPlayerRepository
+from domain.repository.iteam_player_repository import ITeamPlayerRepository
+from domain.repository.iteam_repository import ITeamRepository
 
 
 class AddPlayerToTeam:

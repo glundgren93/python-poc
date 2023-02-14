@@ -1,6 +1,6 @@
 
-from application.CreateTeam import CreateTeam
-from infra.repository.FakeTeamRepository import FakeTeamRepository
+from application.create_team import CreateTeam
+from infra.repository.in_memory_team_repository import FakeTeamRepository
 
 
 def test_create_team():

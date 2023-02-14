@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from infra.http.IHttpServer import IHttpServer
+from infra.http.ihttp_server import IHttpServer
 
 class FastApiServer(IHttpServer):
     def __init__(self):

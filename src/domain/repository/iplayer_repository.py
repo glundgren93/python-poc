@@ -1,8 +1,5 @@
 from abc import ABC, abstractmethod
-
-from domain.entities.Player import Player
-
-
+from domain.entities.player import Player
 
 class IPlayerRepository(ABC):
     @abstractmethod

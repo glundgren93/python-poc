@@ -1,6 +1,4 @@
-
-
-from domain.repository.IPlayerRepository import IPlayerRepository
+from domain.repository.iplayer_repository import IPlayerRepository
 
 
 class GetPlayers():

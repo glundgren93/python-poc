@@ -1,9 +1,9 @@
 import pytest
-from application.AddPlayerToTeam import AddPlayerToTeam
+from application.add_player_to_team import AddPlayerToTeam
 
-from infra.repository.FakePlayerRepository import FakePlayerRepository
-from infra.repository.FakeTeamPlayerRepository import FakeTeamPlayerRepository
-from infra.repository.FakeTeamRepository import FakeTeamRepository
+from infra.repository.in_memory_player_repository import FakePlayerRepository
+from infra.repository.in_memory_team_player_repository import FakeTeamPlayerRepository
+from infra.repository.in_memory_team_repository import FakeTeamRepository
 
 
 def test_add_player_to_team():

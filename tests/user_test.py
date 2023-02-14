@@ -1,5 +1,5 @@
 
-from domain.entities.Player import Player
+from domain.entities.player import Player
 
 
 def test_create_player():
