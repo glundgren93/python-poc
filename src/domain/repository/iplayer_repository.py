@@ -11,5 +11,5 @@ class IPlayerRepository(ABC):
         pass
 
     @abstractmethod
-    def create_player(email, role):
+    def create_player(self, email, role):
         pass

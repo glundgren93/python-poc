@@ -18,6 +18,6 @@ class InMemoryPlayerRepository(IPlayerRepository):
 
     def create_player(self, email, role):
         new_id = len(self.players) + 1
-        self.teams.append(Player(new_id, email, role))
+        self.players.append(Player(new_id, email, role))
 
         return new_id

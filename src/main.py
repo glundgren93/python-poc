@@ -1,6 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from application.create_player import CreatePlayer
 
 from application.create_team import CreateTeam
 from application.get_player import GetPlayer
@@ -12,7 +13,6 @@ from infra.controller.teams import TeamController
 from infra.http.fast_api_server import FastApiServer
 from infra.repository.in_memory_player_repository import InMemoryPlayerRepository
 from infra.repository.in_memory_team_repository import InMemoryTeamRepository
-
 
 
 app = FastAPI()
@@ -31,15 +31,26 @@ server = FastApiServer()
 
 player_fake_data = InMemoryPlayerRepository()
 team_fake_data = InMemoryTeamRepository()
+
 get_players = GetPlayers(player_data=player_fake_data)
 get_player = GetPlayer(player_data=player_fake_data)
+create_player = CreatePlayer(player_data=player_fake_data)
+
 create_team = CreateTeam(team_data=team_fake_data)
 get_teams = GetTeams(team_data=team_fake_data)
 get_team = GetTeam(team_data=team_fake_data)
 
-playerController = PlayerController(httpServer=server, getPlayers=get_players, _get_player=get_player)
+playerController = PlayerController(
+    httpServer=server,
+    getPlayers=get_players,
+    _get_player=get_player,
+    _create_player=create_player,
+)
 teamController = TeamController(
-    _create_team=create_team, _get_teams=get_teams, _get_team=get_team, httpServer=server
+    _create_team=create_team,
+    _get_teams=get_teams,
+    _get_team=get_team,
+    httpServer=server,
 )
 
 app.include_router(server.router)
