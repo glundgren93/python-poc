@@ -3,6 +3,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from application.create_team import CreateTeam
+from application.get_player import GetPlayer
 from application.get_players import GetPlayers
 from application.get_team import GetTeam
 from application.get_teams import GetTeams
@@ -31,11 +32,12 @@ server = FastApiServer()
 player_fake_data = InMemoryPlayerRepository()
 team_fake_data = InMemoryTeamRepository()
 get_players = GetPlayers(player_data=player_fake_data)
+get_player = GetPlayer(player_data=player_fake_data)
 create_team = CreateTeam(team_data=team_fake_data)
 get_teams = GetTeams(team_data=team_fake_data)
 get_team = GetTeam(team_data=team_fake_data)
 
-playerController = PlayerController(httpServer=server, getPlayers=get_players)
+playerController = PlayerController(httpServer=server, getPlayers=get_players, _get_player=get_player)
 teamController = TeamController(
     _create_team=create_team, _get_teams=get_teams, _get_team=get_team, httpServer=server
 )
