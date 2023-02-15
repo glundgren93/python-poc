@@ -1,9 +1,16 @@
 from domain.entities.player_team import PlayerTeam
 from domain.repository.iteam_player_repository import ITeamPlayerRepository
 
-class FakeTeamPlayerRepository(ITeamPlayerRepository):
+class InMemoryTeamPlayerRepository(ITeamPlayerRepository):
     def __init__(self):
         self.player_teams = []
+
+    def get_team_player(self, team_id, player_id):
+        for player_team in self.player_teams:
+            if player_team.team_id == team_id and player_team.player_id == player_id:
+                return player_team
+        return None
+
 
     def create_team_player(self, team_id, player_id):
         userTeam = PlayerTeam(player_id, team_id)

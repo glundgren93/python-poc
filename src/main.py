@@ -4,12 +4,13 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from application.create_team import CreateTeam
 from application.get_players import GetPlayers
+from application.get_team import GetTeam
 from application.get_teams import GetTeams
 from infra.controller.players import PlayerController
 from infra.controller.teams import TeamController
 from infra.http.fast_api_server import FastApiServer
-from infra.repository.in_memory_player_repository import FakePlayerRepository
-from infra.repository.in_memory_team_repository import FakeTeamRepository
+from infra.repository.in_memory_player_repository import InMemoryPlayerRepository
+from infra.repository.in_memory_team_repository import InMemoryTeamRepository
 
 
 
@@ -27,15 +28,16 @@ app.add_middleware(
 
 server = FastApiServer()
 
-player_fake_data = FakePlayerRepository()
-team_fake_data = FakeTeamRepository()
+player_fake_data = InMemoryPlayerRepository()
+team_fake_data = InMemoryTeamRepository()
 get_players = GetPlayers(player_data=player_fake_data)
 create_team = CreateTeam(team_data=team_fake_data)
 get_teams = GetTeams(team_data=team_fake_data)
+get_team = GetTeam(team_data=team_fake_data)
 
 playerController = PlayerController(httpServer=server, getPlayers=get_players)
 teamController = TeamController(
-    createTeam=create_team, getTeams=get_teams, httpServer=server
+    _create_team=create_team, _get_teams=get_teams, _get_team=get_team, httpServer=server
 )
 
 app.include_router(server.router)

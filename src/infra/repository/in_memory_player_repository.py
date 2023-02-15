@@ -1,7 +1,7 @@
 from domain.entities.player import Player
 from domain.repository.iplayer_repository import IPlayerRepository
 
-class FakePlayerRepository(IPlayerRepository):
+class InMemoryPlayerRepository(IPlayerRepository):
     def __init__(self):
         self.players = [
             Player(1, "coach1", "coach"),

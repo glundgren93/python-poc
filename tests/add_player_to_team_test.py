@@ -1,18 +1,18 @@
+from datetime import datetime
 import pytest
 from application.add_player_to_team import AddPlayerToTeam
 
-from infra.repository.in_memory_player_repository import FakePlayerRepository
-from infra.repository.in_memory_team_player_repository import FakeTeamPlayerRepository
-from infra.repository.in_memory_team_repository import FakeTeamRepository
-
+from infra.repository.in_memory_player_repository import InMemoryPlayerRepository
+from infra.repository.in_memory_team_player_repository import InMemoryTeamPlayerRepository
+from infra.repository.in_memory_team_repository import InMemoryTeamRepository
 
 def test_add_player_to_team():
     team_id = 1
     player_id = 1
 
-    player_fake_data = FakePlayerRepository()
-    team_fake_data = FakeTeamRepository()
-    team_player_fake_data = FakeTeamPlayerRepository()
+    player_fake_data = InMemoryPlayerRepository()
+    team_fake_data = InMemoryTeamRepository()
+    team_player_fake_data = InMemoryTeamPlayerRepository()
 
     add_player_to_team = AddPlayerToTeam(
         player_fake_data, team_fake_data, team_player_fake_data
@@ -21,9 +21,11 @@ def test_add_player_to_team():
 
     players = team_player_fake_data.get_players_from_team(team_id)
     teams = team_player_fake_data.get_teams_from_player(player_id)
+    team_player = team_player_fake_data.get_team_player(team_id, player_id)
 
     assert len(teams) == 1
     assert len(players) == 1
+    assert team_player.join_date == datetime.now()
 
 
 def test_add_multiple_players_to_team():
@@ -31,9 +33,9 @@ def test_add_multiple_players_to_team():
     player_id = 1
     player_to_be_added_id = 2
 
-    player_fake_data = FakePlayerRepository()
-    team_fake_data = FakeTeamRepository()
-    team_player_fake_data = FakeTeamPlayerRepository()
+    player_fake_data = InMemoryPlayerRepository()
+    team_fake_data = InMemoryTeamRepository()
+    team_player_fake_data = InMemoryTeamPlayerRepository()
 
     add_player_to_team = AddPlayerToTeam(
         player_fake_data, team_fake_data, team_player_fake_data
@@ -58,9 +60,9 @@ def test_add_player_to_multiple_teams():
     third_team_id = 3
     player_id = 1
 
-    player_fake_data = FakePlayerRepository()
-    team_fake_data = FakeTeamRepository()
-    team_player_fake_data = FakeTeamPlayerRepository()
+    player_fake_data = InMemoryPlayerRepository()
+    team_fake_data = InMemoryTeamRepository()
+    team_player_fake_data = InMemoryTeamPlayerRepository()
 
     add_player_to_team = AddPlayerToTeam(
         player_fake_data, team_fake_data, team_player_fake_data
@@ -85,9 +87,9 @@ def test_cannot_add_player_to_non_existing_team():
         team_id = 4
         player_id = 1
 
-        player_fake_data = FakePlayerRepository()
-        team_fake_data = FakeTeamRepository()
-        team_player_fake_data = FakeTeamPlayerRepository()
+        player_fake_data = InMemoryPlayerRepository()
+        team_fake_data = InMemoryTeamRepository()
+        team_player_fake_data = InMemoryTeamPlayerRepository()
 
         add_player_to_team = AddPlayerToTeam(
             player_fake_data, team_fake_data, team_player_fake_data
@@ -100,9 +102,9 @@ def test_cannot_add_non_existing_player_to_team():
         team_id = 1
         player_id = 45
 
-        player_fake_data = FakePlayerRepository()
-        team_fake_data = FakeTeamRepository()
-        team_player_fake_data = FakeTeamPlayerRepository()
+        player_fake_data = InMemoryPlayerRepository()
+        team_fake_data = InMemoryTeamRepository()
+        team_player_fake_data = InMemoryTeamPlayerRepository()
 
         add_player_to_team = AddPlayerToTeam(
             player_fake_data, team_fake_data, team_player_fake_data
@@ -114,9 +116,9 @@ def test_add_player_to_subteam():
     subteam_id = 2
     player_id = 1
 
-    player_fake_data = FakePlayerRepository()
-    team_fake_data = FakeTeamRepository()
-    team_player_fake_data = FakeTeamPlayerRepository()
+    player_fake_data = InMemoryPlayerRepository()
+    team_fake_data = InMemoryTeamRepository()
+    team_player_fake_data = InMemoryTeamPlayerRepository()
 
     add_player_to_team = AddPlayerToTeam(
         player_fake_data, team_fake_data, team_player_fake_data

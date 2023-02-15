@@ -2,18 +2,18 @@ import pytest
 from application.add_player_to_team import AddPlayerToTeam
 from application.remove_player_from_team import RemovePlayerFromTeam
 
-from infra.repository.in_memory_player_repository import FakePlayerRepository
-from infra.repository.in_memory_team_player_repository import FakeTeamPlayerRepository
-from infra.repository.in_memory_team_repository import FakeTeamRepository
+from infra.repository.in_memory_player_repository import InMemoryPlayerRepository
+from infra.repository.in_memory_team_player_repository import InMemoryTeamPlayerRepository
+from infra.repository.in_memory_team_repository import InMemoryTeamRepository
 
 
 def test_remove_player_from_team():
     team_id = 1
     player_id = 1
 
-    player_fake_data = FakePlayerRepository()
-    team_fake_data = FakeTeamRepository()
-    team_player_fake_data = FakeTeamPlayerRepository()
+    player_fake_data = InMemoryPlayerRepository()
+    team_fake_data = InMemoryTeamRepository()
+    team_player_fake_data = InMemoryTeamPlayerRepository()
 
     add_player_to_team = AddPlayerToTeam(
         player_fake_data, team_fake_data, team_player_fake_data
@@ -34,9 +34,9 @@ def test_remove_player_from_team():
     player_id = 1
     player_id_2 = 2
 
-    player_fake_data = FakePlayerRepository()
-    team_fake_data = FakeTeamRepository()
-    team_player_fake_data = FakeTeamPlayerRepository()
+    player_fake_data = InMemoryPlayerRepository()
+    team_fake_data = InMemoryTeamRepository()
+    team_player_fake_data = InMemoryTeamPlayerRepository()
 
     add_player_to_team = AddPlayerToTeam(
         player_fake_data, team_fake_data, team_player_fake_data
@@ -58,9 +58,9 @@ def test_cannot_remove_player_from_non_existing_team():
         team_id = 4
         player_id = 1
 
-        player_fake_data = FakePlayerRepository()
-        team_fake_data = FakeTeamRepository()
-        team_player_fake_data = FakeTeamPlayerRepository()
+        player_fake_data = InMemoryPlayerRepository()
+        team_fake_data = InMemoryTeamRepository()
+        team_player_fake_data = InMemoryTeamPlayerRepository()
 
         remove_player_from_team = RemovePlayerFromTeam(player_fake_data, team_fake_data, team_player_fake_data)
         remove_player_from_team.execute(team_id,player_id)
@@ -70,9 +70,9 @@ def test_cannot_remove_team_with_non_existing_player():
         team_id = 1
         player_id = 152
 
-        player_fake_data = FakePlayerRepository()
-        team_fake_data = FakeTeamRepository()
-        team_player_fake_data = FakeTeamPlayerRepository()
+        player_fake_data = InMemoryPlayerRepository()
+        team_fake_data = InMemoryTeamRepository()
+        team_player_fake_data = InMemoryTeamPlayerRepository()
 
         remove_player_from_team = RemovePlayerFromTeam(player_fake_data, team_fake_data, team_player_fake_data)
         remove_player_from_team.execute(team_id,player_id)

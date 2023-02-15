@@ -1,7 +1,7 @@
 from domain.entities.team import Team
 from domain.repository.iteam_repository import ITeamRepository
 
-class FakeTeamRepository(ITeamRepository):
+class InMemoryTeamRepository(ITeamRepository):
     def __init__(self):
         self.teams = [
             Team(1, "Apex"),
@@ -13,6 +13,7 @@ class FakeTeamRepository(ITeamRepository):
         return self.teams
 
     def get_team(self, team_id) -> Team:
+        print(team_id)
         return next((x for x in self.teams if x.id == team_id), None)
 
     def get_sub_teams(self, team_id):
