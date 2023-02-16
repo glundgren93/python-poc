@@ -1,5 +1,6 @@
 import pytest
 from application.add_player_to_team import AddPlayerToTeam
+from application.get_players_from_team import GetPlayersFromTeam
 from application.remove_player_from_team import RemovePlayerFromTeam
 
 from infra.repository.in_memory_player_repository import InMemoryPlayerRepository
@@ -18,12 +19,13 @@ def test_remove_player_from_team():
     add_player_to_team = AddPlayerToTeam(
         player_fake_data, team_fake_data, team_player_fake_data
     )
+    get_players_from_team = GetPlayersFromTeam(team_player_fake_data)
     add_player_to_team.execute(team_id, player_id)
 
     remove_player_from_team = RemovePlayerFromTeam(player_fake_data, team_fake_data, team_player_fake_data)
     remove_player_from_team.execute(team_id,player_id)
 
-    players = team_player_fake_data.get_players_from_team(team_id)
+    players = get_players_from_team.execute(team_id)
     teams = team_player_fake_data.get_teams_from_player(player_id)
 
     assert len(teams) == 0
@@ -41,13 +43,15 @@ def test_remove_player_from_team():
     add_player_to_team = AddPlayerToTeam(
         player_fake_data, team_fake_data, team_player_fake_data
     )
+    get_players_from_team = GetPlayersFromTeam(team_player_fake_data)
+
     add_player_to_team.execute(team_id, player_id)
     add_player_to_team.execute(team_id, player_id_2)
 
     remove_player_from_team = RemovePlayerFromTeam(player_fake_data, team_fake_data, team_player_fake_data)
     remove_player_from_team.execute(team_id,player_id)
 
-    players = team_player_fake_data.get_players_from_team(team_id)
+    players = get_players_from_team.execute(team_id)
     teams = team_player_fake_data.get_teams_from_player(player_id)
 
     assert len(teams) == 0
